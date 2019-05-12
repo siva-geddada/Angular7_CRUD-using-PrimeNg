@@ -1,0 +1,25 @@
+<p-toolbar>
+  <div class="ui-toolbar-group-left">
+      <p-sidebar [(visible)]="display">
+          <img src="../../assets/2403.gif">
+          <hr style="margin-left: -15px;margin-right: -15px;">
+          <ul style="padding-left: initial;">
+              <div routerLink="/formvalidations" style="margin-top: -15px;">
+                <div><i class="pi pi-bookmark" style="font-size: 38px;margin-left: -15px;"></i>
+                </div>
+                <div style="margin-left: 39px;margin-top: -27px;">ReactiveForms</div>
+              </div>
+              <hr>
+
+
+          </ul>
+          </p-sidebar>
+          <button type="text" (click)="display = true" pButton icon="pi pi-bars" ></button>&nbsp;
+  </div>
+  
+  <div class="ui-toolbar-group-right">
+      <button pButton type="button" icon="pi pi-search"></button>
+      <button pButton type="button" icon="pi pi-calendar" class="ui-button-success"></button>
+      <button pButton type="button" icon="pi pi-times" class="ui-button-danger"></button>
+  </div>
+</p-toolbar>

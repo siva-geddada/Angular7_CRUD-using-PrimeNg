@@ -1,0 +1,39 @@
+.content-section.introduction {
+    background-image: linear-gradient(to left,#2bc0ec,#1b81d7);
+    color: #fff;
+}
+.content-section {
+    display: block;
+    padding: 15px;
+    overflow: hidden;
+    background-color: #f5f7f8;
+}
+.content-section:first-of-type>div>span {
+    line-height: 1.5em;
+}
+.feature-title {
+    font-size: 25px;
+    margin-bottom: 20px;
+    display: block;
+}
+.addon-error {
+    span {
+        border-color: red;
+}
+}
+
+button {
+    margin: 0;
+    color: #ffffff;
+    background-color: #0194f7;
+    border: 1px solid #007ad9;
+}
+body .ui-dialog .ui-dialog-titlebar {
+    border: 1px solid #c8c8c8;
+    background-color: #f4f4f4;
+    color: #333333;
+    padding: 1em;
+    font-weight: 700;
+    border-bottom: 0 none;
+    width: 546px;
+}

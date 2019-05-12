@@ -1,8 +1,69 @@
-<!--The content below is only a placeholder and can be replaced.-->
+<div>
+  <app-header></app-header>
+      <div>
+      <router-outlet></router-outlet>
+  </div>
+</div>
 <div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-<h2>Hai this siva</h2>
-<h2>Hai this siva1</h2>
-<router-outlet></router-outlet>
+ 
+  <div class="content-section introduction">
+    <div>
+        <span class="feature-title">
+          <h2 >
+            Welcome to {{ title }}!
+            <div style="margin-left: auto;
+                        margin-right: -1051px;
+                        margin-top: -43px;"> 
+            <button type="button" (click)="showDialog()" pButton icon="pi pi-user-plus" label="Add User"></button>
+            </div>
+          </h2>
+        </span>
+    </div>
+    <p-dialog header="Add User" [(visible)]="display"  >
+        <p-card  [style]="{width: '450px'}" >
+            <p-header>
+                <!-- <img src="Card" src="../assets/2403.gif"> -->
+            </p-header>
+            <form [formGroup]="userform" >
+                <br>
+                <div >
+                  <p style="margin-left: -183px;
+                            margin-top: -16px;
+                            color: black;
+                            font-weight: 600;">Username:</p>
+                    <input pInputText type="text"  placeholder="Username" style="width: 266px;" />
+                </div>
+                <br>
+                <div >
+                    <p style="margin-left: -183px;
+                              margin-top: -16px;
+                              color: black;
+                              font-weight: 600;">Password:</p>
+                    <input pInputText type="password"  placeholder="Password" style="width: 266px;"  />
+                </div>
+                <br>
+                <div >
+                    <p style="    margin-left: -203px;
+                              margin-top: -16px;
+                              color: black;
+                              font-weight: 600;">Mail Id:</p>
+                    <input pInputText type="text"  placeholder="Mailid" style="width: 266px;"  />
+                </div>
+                <br>
+                <div >
+                    <p style="margin-left: -183px;
+                              margin-top: -16px;
+                              color: black;
+                              font-weight: 600;">PhoneNo::</p>
+                    <input pInputText type="number"  placeholder="Phoneno" style="width: 266px;"  />
+                </div>
+                </form>
+            <p-footer>
+                <button pButton type="button" label="Add" icon="pi pi-check" style="margin-right: .25em"></button>
+                <button pButton type="button" label="Cancel" icon="pi pi-times" class="ui-button-secondary"></button>
+            </p-footer>
+        </p-card>
+        
+    </p-dialog>
+    
+  </div>
