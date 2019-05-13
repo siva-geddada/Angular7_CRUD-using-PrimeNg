@@ -9,7 +9,7 @@
   <div class="content-section introduction">
     <div>
         <span class="feature-title">
-          <h2 >
+          <h2 style="margin-top: 0px;">
             Welcome to {{ title }}!
             <div style="margin-left: auto;
                         margin-right: -1051px;
@@ -19,51 +19,90 @@
           </h2>
         </span>
     </div>
+    
     <p-dialog header="Add User" [(visible)]="display"  >
         <p-card  [style]="{width: '450px'}" >
-            <p-header>
-                <!-- <img src="Card" src="../assets/2403.gif"> -->
-            </p-header>
-            <form [formGroup]="userform" >
+            <form [formGroup]="userform" novalidate>
                 <br>
                 <div >
                   <p style="margin-left: -183px;
                             margin-top: -16px;
                             color: black;
                             font-weight: 600;">Username:</p>
-                    <input pInputText type="text"  placeholder="Username" style="width: 266px;" />
+                    <input pInputText type="text" formControlName="username"  style="width: 266px;" />
                 </div>
+                <div *ngIf="userform.controls['username'].invalid && (userform.controls['username'].dirty || userform.controls['username'].touched)" class="alert alert-danger">
+                    <div *ngIf="userform.controls['username'].errors.required">
+                      Username is required.
+                    </div>
+                  </div>
                 <br>
                 <div >
                     <p style="margin-left: -183px;
                               margin-top: -16px;
                               color: black;
                               font-weight: 600;">Password:</p>
-                    <input pInputText type="password"  placeholder="Password" style="width: 266px;"  />
+                    <input pInputText type="password" formControlName="password"  style="width: 266px;"  />
                 </div>
+                <div *ngIf="userform.controls['password'].invalid && (userform.controls['password'].dirty || userform.controls['password'].touched)" class="alert alert-danger">
+                    <div *ngIf="userform.controls['password'].errors.required">
+                      password is required.
+                    </div>
+                  </div>
                 <br>
                 <div >
-                    <p style="    margin-left: -203px;
+                    <p style="margin-left: -203px;
                               margin-top: -16px;
                               color: black;
                               font-weight: 600;">Mail Id:</p>
-                    <input pInputText type="text"  placeholder="Mailid" style="width: 266px;"  />
+                    <input pInputText type="text"  formControlName="mailid"  style="width: 266px;"  />
                 </div>
+                <div *ngIf="userform.controls['mailid'].invalid && (userform.controls['mailid'].dirty || userform.controls['mailid'].touched)" class="alert alert-danger">
+                    <div *ngIf="userform.controls['mailid'].errors.required">
+                      mailid is required.
+                    </div>
+                  </div>
                 <br>
                 <div >
                     <p style="margin-left: -183px;
                               margin-top: -16px;
                               color: black;
                               font-weight: 600;">PhoneNo::</p>
-                    <input pInputText type="number"  placeholder="Phoneno" style="width: 266px;"  />
+                    <input pInputText type="number" formControlName="phono"  style="width: 266px;"  />
                 </div>
+                <div *ngIf="userform.controls['phono'].invalid && (userform.controls['phono'].dirty || userform.controls['phono'].touched)" class="alert alert-danger">
+                    <div *ngIf="userform.controls['phono'].errors.required">
+                      phono is required.
+                    </div>
+                  </div>
+                <br>
+                <p-footer>
+                    <button pButton type="submit" label="Add" icon="pi pi-check" style="margin-right: .25em" 
+                    (click)=adduser()></button>
+                    <button pButton type="button" label="Cancel" (click)="closedialog()" icon="pi pi-times" class="ui-button-secondary"></button>
+                </p-footer>
                 </form>
-            <p-footer>
-                <button pButton type="button" label="Add" icon="pi pi-check" style="margin-right: .25em"></button>
-                <button pButton type="button" label="Cancel" icon="pi pi-times" class="ui-button-secondary"></button>
-            </p-footer>
         </p-card>
-        
     </p-dialog>
-    
   </div>
+  <!-- [disabled]="userform.pristine || userform.invalid"  -->
+  <p-table [value]="cars">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>UserName</th>
+            <th>Password</th>
+            <th>MailId</th>
+            <th>PhoneNo</th>
+            <th>Delete</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-car>
+      
+          <tr *ngFor="let user of users">
+          <td>{{users.usename}}</td>
+          <td>{{users.phno}}</td>
+          <td>{{users.mailid}}</td>
+          <td>{{users.phno}}</td>
+          </tr>
+  </ng-template>
+</p-table>

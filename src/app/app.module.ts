@@ -4,8 +4,10 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
+import { HttpClientModule } from '@angular/common/http';
 
-//** PrimeNg Modules**/
+// ** PrimeNg Modules**/
+
 import {InputTextModule} from 'primeng/inputtext';
 import {AccordionModule} from 'primeng/accordion';
 import {CheckboxModule} from 'primeng/checkbox';
@@ -17,7 +19,7 @@ import {ToastModule} from 'primeng/toast';
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
 import {ButtonModule} from 'primeng/button';
-import {PanelModule } from 'primeng/primeng';
+import {PanelModule, MessageService } from 'primeng/primeng';
 import {SidebarModule} from 'primeng/sidebar';
 import {ToolbarModule} from 'primeng/toolbar';
 import {PasswordModule} from 'primeng/password';
@@ -27,7 +29,7 @@ import {InputMaskModule} from 'primeng/inputmask';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {SplitButtonModule} from 'primeng/splitbutton';
 import {DialogModule} from 'primeng/dialog';
-
+import {TableModule} from 'primeng/table';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +39,7 @@ import {DialogModule} from 'primeng/dialog';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    HttpClientModule,
     InputTextModule,
     AccordionModule,
     CheckboxModule,
@@ -57,10 +60,11 @@ import {DialogModule} from 'primeng/dialog';
     InputSwitchModule,
     InputMaskModule,
     SplitButtonModule,
-    DialogModule
+    DialogModule,
+    TableModule
 
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -7,6 +7,7 @@
     padding: 15px;
     overflow: hidden;
     background-color: #f5f7f8;
+    height: 74px;
 }
 .content-section:first-of-type>div>span {
     line-height: 1.5em;
@@ -36,4 +37,8 @@ body .ui-dialog .ui-dialog-titlebar {
     font-weight: 700;
     border-bottom: 0 none;
     width: 546px;
+}
+
+.alert {
+    color: red;
 }
