@@ -68,41 +68,52 @@
                               margin-top: -16px;
                               color: black;
                               font-weight: 600;">PhoneNo::</p>
-                    <input pInputText type="number" formControlName="phono"  style="width: 266px;"  />
+                    <input pInputText type="text" formControlName="phoneno"  style="width: 266px;"  />
                 </div>
-                <div *ngIf="userform.controls['phono'].invalid && (userform.controls['phono'].dirty || userform.controls['phono'].touched)" class="alert alert-danger">
-                    <div *ngIf="userform.controls['phono'].errors.required">
-                      phono is required.
+                <div *ngIf="userform.controls['phoneno'].invalid && (userform.controls['phoneno'].dirty || userform.controls['phoneno'].touched)" class="alert alert-danger">
+                    <div *ngIf="userform.controls['phoneno'].errors.required">
+                      phoneno is required.
                     </div>
                   </div>
                 <br>
                 <p-footer>
                     <button pButton type="submit" label="Add" icon="pi pi-check" style="margin-right: .25em" 
-                    (click)=adduser()></button>
+                    (click)=createUserSubmit()></button>
                     <button pButton type="button" label="Cancel" (click)="closedialog()" icon="pi pi-times" class="ui-button-secondary"></button>
                 </p-footer>
                 </form>
         </p-card>
     </p-dialog>
   </div>
-  <!-- [disabled]="userform.pristine || userform.invalid"  -->
-  <p-table [value]="cars">
+ 
+  <p-table [value]="users">
     <ng-template pTemplate="header">
         <tr>
+            <th>ID</th>
             <th>UserName</th>
             <th>Password</th>
             <th>MailId</th>
             <th>PhoneNo</th>
-            <th>Delete</th>
+            <th>Action</th>
         </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-car>
+    <ng-template pTemplate="body" let-user>
       
-          <tr *ngFor="let user of users">
-          <td>{{users.usename}}</td>
-          <td>{{users.phno}}</td>
-          <td>{{users.mailid}}</td>
-          <td>{{users.phno}}</td>
+          <tr>
+          <td>{{user._id}}</td>
+          <td>{{user.username}}</td>
+          <td>{{user.password}}</td>
+          <td>{{user.mailid}}</td>
+          <td>{{user.phoneno}}</td>
+          <td>
+            <button pButton type="button" label="Edit" icon="pi pi-pencil" iconPos="left" style="width: 83px;" (click)=onEdit(user)></button>&nbsp;
+            <button pButton type="button" label="Delete" class="ui-button-danger" icon="pi pi-trash" iconPos="left" (click)=deleteUser(user._id)></button>
+          </td>
           </tr>
+          <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+          <p-toast position="top-right"></p-toast>
   </ng-template>
 </p-table>
+<h6>{{userform.value | json}}</h6> 
+
+

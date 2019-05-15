@@ -1,26 +1,27 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
+import { Usermodal  } from '../model/usermodal';
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  url: any;
+  private userUrl = 'http://localhost:3000/employees/';
+  selectedEmployee: Usermodal;
 
   constructor(private http: HttpClient) { }
-  adduser(username, password, mailid, phno) {
-    const obj = {
-    Username : username ,
-    Password: password ,
-    Mailid: mailid,
-    Phno: phno
-    };
-    this.http.post(`${this.url}/add`, obj)
-        .subscribe(res => console.log('Done'));
+
+ getUsers() {
+    return this.http.get(this.userUrl + 'users' );
   }
-  getBusinesses() {
-    return this
-           .http
-           .get(`${this.url}`);
+
+  deleteUser(_id: string) {
+    return this.http.delete(this.userUrl + `/${_id}`);
+  }
+
+   createUser(data) {
+    return this.http.post(this.userUrl + 'addItem' , data);
+  }
+  putEmployee(emp: Usermodal) {
+    return this.http.put(this.userUrl + `/${emp._id}`, emp);
   }
 }

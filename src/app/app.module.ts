@@ -30,10 +30,13 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {SplitButtonModule} from 'primeng/splitbutton';
 import {DialogModule} from 'primeng/dialog';
 import {TableModule} from 'primeng/table';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import { ModComponent } from './mod/mod.component';
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    ModComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +64,8 @@ import {TableModule} from 'primeng/table';
     InputMaskModule,
     SplitButtonModule,
     DialogModule,
-    TableModule
+    TableModule,
+    ConfirmDialogModule
 
   ],
   providers: [MessageService],
