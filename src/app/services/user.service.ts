@@ -22,6 +22,7 @@ export class UserService {
     return this.http.post(this.userUrl + 'addItem' , data);
   }
   putEmployee(emp: Usermodal) {
-    return this.http.put(this.userUrl + `/${emp._id}`, emp);
+    console.log(emp, ' Id');
+    return this.http.put(this.userUrl + `${emp._id}`, emp);
   }
 }

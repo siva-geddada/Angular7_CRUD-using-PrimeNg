@@ -31,12 +31,11 @@ import {SplitButtonModule} from 'primeng/splitbutton';
 import {DialogModule} from 'primeng/dialog';
 import {TableModule} from 'primeng/table';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
-import { ModComponent } from './mod/mod.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    ModComponent
   ],
   imports: [
     BrowserModule,
